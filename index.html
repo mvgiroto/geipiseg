@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Publicações e pesquisadores do GEPISEG.">
+  <title>GEPISEG | Acervo de pesquisa</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+      <div class="container container-xxl">
+        <a class="navbar-brand" href="#inicio">GEPISEG</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#publicacoes">Publicações</a></li>
+            <li class="nav-item"><a class="nav-link" href="#areas">Temas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pesquisadores">Pesquisadores</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="intro-section">
+      <div class="container container-xxl">
+        <p class="intro-label">Acervo de pesquisa</p>
+        <h1>Segurança da informação</h1>
+        <p class="intro-description">Consulte as publicações e conheça os pesquisadores do GEPISEG.</p>
+        <div id="heroFeatured" class="featured-publication">
+          <div class="load-state">Carregando publicação em destaque...</div>
+        </div>
+        <div class="row g-3 stats-strip" id="stats" aria-live="polite">
+          <div class="col-6 col-lg-3"><div class="stat-card"><strong id="statArtigos">—</strong><span>Publicações</span></div></div>
+          <div class="col-6 col-lg-3"><div class="stat-card"><strong id="statPesquisadores">—</strong><span>Pesquisadores</span></div></div>
+          <div class="col-6 col-lg-3"><div class="stat-card"><strong id="statTemas">—</strong><span>Temas</span></div></div>
+          <div class="col-6 col-lg-3"><div class="stat-card"><strong id="statCitacoes">—</strong><span>Citações registradas</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publicacoes" class="section-space section-articles" aria-labelledby="artigosTitulo">
+      <div class="container container-xxl">
+        <div class="section-heading">
+          <div>
+            <h2 id="artigosTitulo">Publicações</h2>
+            <p>Pesquise por título, assunto, autor ou ano.</p>
+          </div>
+          <span id="articleTotalLabel">Carregando acervo...</span>
+        </div>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-3">
+            <div class="filters-panel" id="filtersPanel">
+              <div class="filter-top"><h3>Filtros</h3><button type="button" class="btn-link-reset" id="clearArticleFilters">Limpar</button></div>
+              <div class="mb-3"><label for="articleSearch" class="form-label">Pesquisar</label><input id="articleSearch" class="form-control" type="search" placeholder="Título, assunto ou autor" autocomplete="off"></div>
+              <div class="mb-3"><label for="articleTheme" class="form-label">Tema</label><select id="articleTheme" class="form-select"><option value="">Todos os temas</option></select></div>
+              <div class="row g-3">
+                <div class="col-6 col-lg-12"><label for="articleYear" class="form-label">Ano</label><select id="articleYear" class="form-select"><option value="">Todos os anos</option></select></div>
+                <div class="col-6 col-lg-12"><label for="articleType" class="form-label">Tipo</label><select id="articleType" class="form-select"><option value="">Todos os tipos</option></select></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="listing-toolbar">
+              <span class="listing-count" id="articleResultCount" role="status" aria-live="polite">Preparando resultados...</span>
+              <div class="d-flex align-items-center gap-2"><label for="articleOrder" class="sort-label">Ordenar:</label><select id="articleOrder" class="form-select form-select-sm sort-select" aria-label="Ordenar publicações"><option value="recentes">Mais recentes</option><option value="antigos">Mais antigas</option><option value="citacoes">Mais citadas</option><option value="titulo">Título (A–Z)</option></select></div>
+            </div>
+            <div id="articleGrid" class="row g-3 article-grid" aria-live="polite"><div class="col-12"><div class="load-state">Carregando publicações...</div></div></div>
+            <nav aria-label="Paginação das publicações" class="d-flex justify-content-center mt-4"><ul id="articlePagination" class="pagination pagination-custom mb-0"></ul></nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="areas" class="section-space topics-section" aria-labelledby="topicsTitle">
+      <div class="container container-xxl">
+        <div class="section-heading"><div><h2 id="topicsTitle">Temas de pesquisa</h2><p>Selecione um tema para filtrar as publicações.</p></div></div>
+        <div class="row g-2" id="topicsGrid"><div class="col-12">Carregando temas...</div></div>
+      </div>
+    </section>
+
+    <section id="pesquisadores" class="section-space people-section" aria-labelledby="peopleTitle">
+      <div class="container container-xxl">
+        <div class="section-heading">
+          <div><h2 id="peopleTitle">Pesquisadores</h2><p>Pesquise por nome ou área de atuação.</p></div>
+          <span id="researcherTotalLabel">Carregando pesquisadores...</span>
+        </div>
+        <div class="research-toolbar row g-2 align-items-center">
+          <div class="col-lg-5"><input id="researcherSearch" type="search" class="form-control" placeholder="Nome ou área" aria-label="Pesquisar pesquisadores" autocomplete="off"></div>
+          <div class="col-sm-6 col-lg-4"><select id="researcherArea" class="form-select" aria-label="Filtrar pesquisadores por área"><option value="">Todas as áreas</option></select></div>
+          <div class="col-sm-6 col-lg-3"><select id="researcherOrder" class="form-select" aria-label="Ordenar pesquisadores"><option value="nome">Nome (A–Z)</option><option value="artigos">Mais publicações</option><option value="citacoes">Mais citações</option></select></div>
+        </div>
+        <div id="researcherGrid" class="row g-3 mt-1" aria-live="polite"><div class="col-12"><div class="load-state">Carregando pesquisadores...</div></div></div>
+        <nav aria-label="Paginação dos pesquisadores" class="d-flex justify-content-center mt-4"><ul id="researcherPagination" class="pagination pagination-custom mb-0"></ul></nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container container-xxl"><strong>GEPISEG</strong><p class="mb-0">Acervo de pesquisa em segurança da informação.</p></div>
+  </footer>
+
+  <div class="modal fade detail-modal" id="detailModal" tabindex="-1" aria-labelledby="detailModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><span>Detalhes</span><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar detalhes"></button></div><div class="modal-body" id="detailModalBody"><div class="load-state">Carregando informações...</div></div></div></div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="copyToast" class="toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-body d-flex align-items-center justify-content-between gap-3"><span id="toastText">Referência copiada.</span><button type="button" class="btn-close btn-close-sm" data-bs-dismiss="toast" aria-label="Fechar"></button></div></div></div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/gepiseg-api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
